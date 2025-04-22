@@ -1,19 +1,20 @@
 from ultralytics import YOLO
 
 # 加载预训练的模型
-model = YOLO("yolo11m-seg.yaml").load("weights/yolo11m-seg.pt")
+model = YOLO("yolo11m-seg.yaml").load("/tmp/pycharm_project_831/weights/yolo11m-seg.pt")
 
 # 定义训练参数，添加默认值、范围和中文注释
 train_params = {
-    'data': '/Volumes/My Passport/dataset/Final_dataset largest/yolov11/point-seg.yaml',  # 数据集配置文件路径，需要自定义修改
-    'epochs': 30,  # 总训练轮次，默认值 100，范围 >= 1
-    'imgsz': 640,  # 输入图像大小，默认值 640，范围 >= 32
-    'batch': 8,  # 批次大小，默认值 16，范围 >= 1
+    'patience': 50,
+    'data': '/tmp/pycharm_project_831/datasets/UESD/yolov11/UESD.yaml',  # 数据集配置文件路径，需要自定义修改
+    'epochs': 200,  # 总训练轮次，默认值 100，范围 >= 1
+    'imgsz': 1280,  # 输入图像大小，默认值 640，范围 >= 32
+    'batch': 24,  # 批次大小，默认值 16，范围 >= 1
     'save': True,  # 是否保存训练结果和模型，默认值 True
-    'save_period': -1,  # 模型保存频率，默认值 -1，表示只保存最终结果
+    'save_period': 50,  # 模型保存频率，默认值 -1，表示只保存最终结果
     'cache': False,  # 是否缓存数据集，默认值 False
-    'device': 'mps',  # 训练设备，默认值 None，支持 "cpu", "gpu"(device=0,1), "mps"
-    'workers': 8,  # 数据加载线程数，默认值 8，影响数据预处理速度
+    'device': '0,1,2',  # 训练设备，默认值 None，支持 "cpu", "gpu"(device=0,1), "mps"
+    'workers': 24,  # 数据加载线程数，默认值 8，影响数据预处理速度
     'project': None,  # 项目名称，保存训练结果的目录，默认值 None
     'name': None,  # 训练运行的名称，用于创建子目录保存结果，默认值 None
     'exist_ok': False,  # 是否覆盖已有项目/名称目录，默认值 False
@@ -58,7 +59,7 @@ train_params = {
     'translate': 0.1,  # 平移范围 (0.0 - 1.0)，默认值 0.1
     'scale': 0.5,  # 缩放比例范围 (>= 0.0)，默认值 0.5
     'shear': 0.0,  # 剪切角度范围 (-180 - 180)，默认值 0.0
-    'perspective': 0.0,  # 透视变化范围 (0.0 - 0.001)，默认值 0.0
+    'perspective': 0.0005,  # 透视变化范围 (0.0 - 0.001)，默认值 0.0
     'flipud': 0.0,  # 上下翻转概率 (0.0 - 1.0)，默认值 0.0
     'fliplr': 0.5,  # 左右翻转概率 (0.0 - 1.0)，默认值 0.5
     'bgr': 0.0,  # BGR 色彩顺序调整概率 (0.0 - 1.0)，默认值 0.0
