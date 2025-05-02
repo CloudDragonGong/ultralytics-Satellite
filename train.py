@@ -8,7 +8,7 @@ train_params = {
     'patience': 50,
     'data': '/tmp/pycharm_project_831/datasets/UESD/yolov11/UESD.yaml',  # 数据集配置文件路径，需要自定义修改
     'epochs': 200,  # 总训练轮次，默认值 100，范围 >= 1
-    'imgsz': 1280,  # 输入图像大小，默认值 640，范围 >= 32
+    'imgsz': 640,  # 输入图像大小，默认值 640，范围 >= 32
     'batch': 24,  # 批次大小，默认值 16，范围 >= 1
     'save': True,  # 是否保存训练结果和模型，默认值 True
     'save_period': 50,  # 模型保存频率，默认值 -1，表示只保存最终结果

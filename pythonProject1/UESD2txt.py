@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 # The labels are 0:*background* 1:panel 2:antenna 3:instrument 4:thruster 5:opticpayload
 
-#  yolo :  antenna  0   body   1  solar panel 2  instrument 3  thruster 4 opticpayload  5
+#  yolo :  0   antenna     1  solar panel 2  instrument 3  thruster 4 opticpayload
 
 def remove_mask_suffix(filename):
     return filename.replace('_mask', '')
@@ -63,7 +63,7 @@ def convert_single_mask_image_to_yolo_txt(image_folder_path, txt_folder_path, ma
 
         for contour in contours:
             # 将轮廓转换为平面点
-            points = contour.reshape(-1, 2)
+            points = contour.reshape(-1, 3)
             normalized_points = points / np.array([mask_image_width, mask_image_height])
             normalized_points = normalized_points.reshape(-1)
             if len(normalized_points) < 3:
