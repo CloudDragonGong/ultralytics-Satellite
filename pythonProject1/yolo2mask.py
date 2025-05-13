@@ -64,8 +64,8 @@ def process(txt_dir, img_dir, mask_dir):
 
 
 if __name__  == '__main__':
-    txt_dir = r'/Volumes/My Passport/dataset/UESD/yolov11/val/sam_labels_yolo'     # 标签txt所在目录
-    img_dir = r'/Volumes/My Passport/dataset/UESD/yolov11/val/images'   # 原始图片目录
-    mask_dir = r'/Volumes/My Passport/dataset/UESD/yolov11/val/sam_labels_mask'   # 输出mask目录
+    txt_dir = r'/Volumes/My Passport/dataset/URSO/test/sam_labels_yolo'    # 标签txt所在目录
+    img_dir = r'/Volumes/My Passport/dataset/URSO/test/images'   # 原始图片目录
+    mask_dir = r'/Volumes/My Passport/dataset/URSO/test/sam_labels_mask'  # 输出mask目录
 
     process(txt_dir, img_dir, mask_dir)
